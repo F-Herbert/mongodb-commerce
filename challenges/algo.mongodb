@@ -1,8 +1,8 @@
 use('commerce')
 
-db.produtos.updateOne({nome:'Quarteirão com Queijo'},{$pop:{ingredientes: -1}})
+db.produtos.updateMany({},{$push: { vendasPorDia: {
+  $each:[0, 0, 0, 0, 0, 0, 0]
 
-
-db.produtos.find({nome:'Quarteirão com Queijo'});
+}}})
 
 
