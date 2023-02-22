@@ -1,7 +1,9 @@
 use('commerce')
 
-db.produtos.find({
+db.produtos.updateMany({
   $and: [
-    vendidos: { $gt: 50, $lt: 100}
+    { nome: { $ne: "McChicken"}},
+    {$addToSet: { ingredientes: 'ketchup'}}
   ]
-},{nome:1,vendidos:1,_id:0}).sort({vendidos:1})
+})
+
